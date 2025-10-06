@@ -1,0 +1,8 @@
+* {
+    font-family: Roboto, sans-serif;
+    margin: auto;
+}
+
+input[type=text] {
+    width: 100%;
+}
