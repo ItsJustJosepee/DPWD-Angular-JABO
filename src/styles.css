@@ -3,7 +3,7 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evita cualquier scroll horizontal inesperado */
+  overflow-x: hidden; 
 }
 
 body {
@@ -11,7 +11,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Asegurarse de que no haya márgenes en el contenedor raíz de Angular */
 app-root {
   display: flex;
   flex-direction: column;
@@ -22,32 +21,28 @@ app-root {
   box-sizing: border-box;
 }
 
-/* Navbar */
 .navbar {
   width: 100%;
   background: #ff8b07;
-  padding: 10px 0; /* Evitar paddings laterales innecesarios */
+  padding: 10px 0; 
   margin: 0 0 10px 0;
   box-sizing: border-box;
 }
 
-/* Lista de navegación */
 .navbar-list {
   display: flex;
   justify-content: center;
   align-items: center;
   list-style: none;
   margin: 0;
-  padding: 0; /* Aquí estaba el error */
-  flex-wrap: wrap; /* Hace que los elementos bajen si el espacio no alcanza */
+  padding: 0;
+  flex-wrap: wrap;
 }
 
-/* Elementos dentro de la lista */
 .navbar-list li {
   margin: 0 20px;
 }
 
-/* Enlaces */
 .navbar-list a {
   color: white;
   text-decoration: none;
@@ -58,7 +53,6 @@ app-root {
   display: inline-block;
 }
 
-/* Hover */
 .navbar-list a:hover {
   background-color: #ff4800;
 }
