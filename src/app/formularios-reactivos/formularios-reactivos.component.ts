@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class FormulariosReactivosComponent {
   registroForm: FormGroup;
+  MostrarDatos:boolean=false;
 
   constructor(private fb: FormBuilder) {
     this.registroForm = this.fb.group({

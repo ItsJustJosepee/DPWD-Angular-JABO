@@ -3,7 +3,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlantillaComponent } from './plantilla/plantilla.component';
 import { ValidacionesComponent } from './validaciones/validaciones.component';
 import { FormulariosReactivosComponent } from './formularios-reactivos/formularios-reactivos.component';
@@ -26,7 +26,8 @@ import { Hijo2Component } from './hijo2/hijo2.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()

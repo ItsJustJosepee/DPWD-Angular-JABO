@@ -1,1 +1,37 @@
-<p>formularios-reactivos works!</p>
+<div class="container">
+    <h1>Formularios Reactivos (FormControl, Validators, FormGroup y FormBuilder)</h1>
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+        
+        <label for="nombre">Nombre: <span>*</span></label>
+        <input type="text" id="nombre" formControlName="nombre" placeholder="Ingresa tu nombre">
+        <div class="alerta" *ngIf="registroForm.get('nombre')?.invalid && registroForm.get('nombre')?.touched">
+            <div *ngIf="registroForm.get('nombre')?.hasError">El nombre es obligatorio</div>
+        </div>
+
+        <label for="email">Nombre: <span>*</span></label>
+        <input type="text" id="email" formControlName="email" placeholder="Ingresa tu correo electrónico">
+        <div class="alerta" *ngIf="registroForm.get('email')?.invalid && registroForm.get('email')?.touched">
+            <div *ngIf="registroForm.get('email')?.hasError('required')">El correo electrónico es obligatorio</div>
+            <div *ngIf="registroForm.get('email')?.hasError('email')">El correo electrónico debe ser válido</div>
+        </div>
+
+        <label for="fechaNacimiento">Fecha de Nacimiento: <span>*</span></label>
+        <input type="text" id="fechaNacimiento" formControlName="fecha" placeholder="Ingresa tu fecha de nacimiento">
+        <div class="alerta" *ngIf="registroForm.get('fecha')?.invalid && registroForm.get('email')?.touched">
+            <div *ngIf="registroForm.get('fecha')?.hasError('required')">La fecha de ncimiento es obligatoria</div>
+            <div *ngIf="registroForm.get('fecha')?.hasError('pattern')">El formato de fecha es incorrecto (YYYY-MM-DD)</div>
+        </div>
+        <span>* Campo obligatorio</span>
+        <button type="submit" [class]="{
+            'enviar':registroForm.valid,
+            'deshabilitado':registroForm.invalid
+        }"[disabled]="registroForm.invalid">Registrarse</button>
+    </form>
+    <ng-container *ngIf="MostrarDatos">
+        <h1>Datos verificados:</h1>
+        Nombre: {{registroForm.get('nombre')?.value}}<br>
+        Correo: {{registroForm.get('email')?.value}}<br>
+        Fecha de Nacimiento: {{registroForm.get('fecha')?.value}}<br>
+        Contraseña: {{registroForm.get('password')?.value}}<br>
+    </ng-container>
+</div>

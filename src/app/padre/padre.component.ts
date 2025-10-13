@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './padre.component.css'
 })
 export class PadreComponent {
-
+  NombreDelPadre: string = ""
+  CambiarNombre(nombre:string){
+    this.NombreDelPadre = nombre;
+  }
 }
