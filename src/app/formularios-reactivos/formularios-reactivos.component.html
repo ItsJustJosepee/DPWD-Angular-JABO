@@ -8,7 +8,7 @@
             <div *ngIf="registroForm.get('nombre')?.hasError">El nombre es obligatorio</div>
         </div>
 
-        <label for="email">Nombre: <span>*</span></label>
+        <label for="email">Correo Electrónico: <span>*</span></label>
         <input type="text" id="email" formControlName="email" placeholder="Ingresa tu correo electrónico">
         <div class="alerta" *ngIf="registroForm.get('email')?.invalid && registroForm.get('email')?.touched">
             <div *ngIf="registroForm.get('email')?.hasError('required')">El correo electrónico es obligatorio</div>
@@ -21,6 +21,13 @@
             <div *ngIf="registroForm.get('fecha')?.hasError('required')">La fecha de ncimiento es obligatoria</div>
             <div *ngIf="registroForm.get('fecha')?.hasError('pattern')">El formato de fecha es incorrecto (YYYY-MM-DD)</div>
         </div>
+
+        <label for="password">Contraseña: <span>*</span></label>
+        <input type="password" id="password" formControlName="password" placeholder="Ingresa tu contraseña.">
+        <div class="alerta" *ngIf="registroForm.get('password')?.invalid && registroForm.get('password')?.touched">
+            <div *ngIf="registroForm.get('password')?.hasError('required')">La contraseña es obligatoria</div>
+        </div>
+
         <span>* Campo obligatorio</span>
         <button type="submit" [class]="{
             'enviar':registroForm.valid,
