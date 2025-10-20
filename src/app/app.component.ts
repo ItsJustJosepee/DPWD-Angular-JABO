@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-// importa todo el módulo de analytics
 import * as vercelAnalytics from '@vercel/analytics';
 
 @Component({
@@ -9,21 +8,36 @@ import * as vercelAnalytics from '@vercel/analytics';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  isMenuOpen = false;
+  isSubmenuOpen: string | null = null;
+
   constructor(private router: Router) {}
 
   ngOnInit() {
-    // Verifica que esté corriendo en el navegador (no en Node)
     if (typeof window !== 'undefined') {
-      // Inicializa analytics
       vercelAnalytics.inject();
-
-      // Trackea navegación interna
       this.router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
           vercelAnalytics.inject();
-          console.log('📊 Vercel Analytics: ruta visitada →', event.urlAfterRedirects);
+          this.isMenuOpen = false;
+          this.isSubmenuOpen = null;
         }
       });
     }
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    if (!this.isMenuOpen) this.isSubmenuOpen = null;
+  }
+
+  toggleSubmenu(menu: string) {
+    // si está abierto, lo cerramos; si no, lo abrimos
+    this.isSubmenuOpen = this.isSubmenuOpen === menu ? null : menu;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+    this.isSubmenuOpen = null;
   }
 }

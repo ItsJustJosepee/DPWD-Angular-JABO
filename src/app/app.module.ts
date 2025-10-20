@@ -11,6 +11,7 @@ import { PadreComponent } from './padre/padre.component';
 import { HijoComponent } from './hijo/hijo.component';
 import { Padre2Component } from './padre2/padre2.component';
 import { Hijo2Component } from './hijo2/hijo2.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { Hijo2Component } from './hijo2/hijo2.component';
     PadreComponent,
     HijoComponent,
     Padre2Component,
-    Hijo2Component
+    Hijo2Component,
+    InicioComponent
   ],
   imports: [
     BrowserModule,

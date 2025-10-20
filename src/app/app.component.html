@@ -1,14 +1,39 @@
 <nav class="navbar">
-    <ul class="navbar-list">
-      <li><a routerLink="/Formulario">Plantilla</a></li>
-      <li><a routerLink="/validacion">Validación</a></li>
-      <li><a routerLink="/reactivos">Reactivos</a></li>
-      <li><a routerLink="/padre">Padre</a></li>
-      <li><a routerLink="/hijo">Hijo</a></li>
-      <li><a routerLink="/padre2">Padre 2</a></li>
-      <li><a routerLink="/hijo2">Hijo 2</a></li>
-    </ul>
-  </nav>
-  
-  <router-outlet></router-outlet>
-  
+  <div class="navbar-title">Proyecto Angular</div>
+
+  <ul id="main-nav" class="navbar-list" [class.open]="isMenuOpen">
+    <li><a routerLink="/Formulario" (click)="closeMenu()">Plantilla</a></li>
+    <li><a routerLink="/validacion" (click)="closeMenu()">Validación</a></li>
+    <li><a routerLink="/reactivos" (click)="closeMenu()">Reactivos</a></li>
+
+    <li class="submenu">
+      <span (click)="toggleSubmenu('h1')" (keydown.enter)="toggleSubmenu('h1')" tabindex="0">Herencia</span>
+      <ul class="dropdown" [class.show]="isSubmenuOpen === 'h1'">
+        <li><a routerLink="/padre" (click)="closeMenu()">Padre</a></li>
+        <li><a routerLink="/hijo" (click)="closeMenu()">Hijo</a></li>
+      </ul>
+    </li>
+
+    <li class="submenu">
+      <span (click)="toggleSubmenu('h2')" (keydown.enter)="toggleSubmenu('h2')" tabindex="0">Herencia 2</span>
+      <ul class="dropdown" [class.show]="isSubmenuOpen === 'h2'">
+        <li><a routerLink="/padre2" (click)="closeMenu()">Padre 2</a></li>
+        <li><a routerLink="/hijo2" (click)="closeMenu()">Hijo 2</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <button class="menu-toggle" (click)="toggleMenu()" aria-label="Abrir menú" [attr.aria-expanded]="isMenuOpen">
+    <span class="bar" [class.active]="isMenuOpen"></span>
+    <span class="bar" [class.active]="isMenuOpen"></span>
+    <span class="bar" [class.active]="isMenuOpen"></span>
+  </button>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer class="footer">
+  <p>José Arath Barajas Ortega</p>
+  <p>Matrícula: 2209836</p>
+  <p>Aula: 146 G 5L1</p>
+</footer>

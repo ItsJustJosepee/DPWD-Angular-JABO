@@ -8,8 +8,10 @@ import { PadreComponent } from './padre/padre.component';
 import { HijoComponent } from './hijo/hijo.component';
 import { Padre2Component } from './padre2/padre2.component';
 import { Hijo2Component } from './hijo2/hijo2.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 const routes: Routes = [
+  { path: 'inicio', component: InicioComponent },
   { path: 'Formulario', component: PlantillaComponent },
   { path: 'validacion', component: ValidacionesComponent },
   { path: 'reactivos', component: FormulariosReactivosComponent },
@@ -17,8 +19,8 @@ const routes: Routes = [
   { path: 'hijo', component: HijoComponent },
   { path: 'padre2', component: Padre2Component },
   { path: 'hijo2', component: Hijo2Component },
-  { path: '', redirectTo: '/Formulario', pathMatch: 'full' },
-  { path: '**', redirectTo: '/Formulario' } 
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+  { path: '**', redirectTo: '/inicio' } 
 ];
 
 @NgModule({
