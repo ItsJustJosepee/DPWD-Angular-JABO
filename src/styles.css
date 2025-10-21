@@ -1,5 +1,39 @@
+@font-face {
+  font-family: 'Pusab';
+  src: url('assets/fonts/Pusab.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('assets/fonts/Minecraft Normal.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('assets/fonts/Minecraft Negritas.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('assets/fonts/Minecraft Italica.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('assets/fonts/Minecraft Negritas Cursiva.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
 /* ======= BASE ======= */
 :root {
+  /* Original Hex Values (keep for reference or other uses if you want) */
   --color-claro: #ffd373;
   --color-naranja: #fd8021;
   --color-naranja-oscuro: #e05400;
@@ -7,14 +41,35 @@
   --color-azul-oscuro: #003488;
   --color-azul-profundo: #001d59;
   --color-fondo: #001524;
-}
+  --color-negro-contrastado: #101010;
 
-html, body {
+  /* New RGB Component Versions for Opacity */
+  --color-claro-rgb: 255, 211, 115;
+  --color-naranja-rgb: 253, 128, 33;
+  --color-naranja-oscuro-rgb: 224, 84, 0;
+  --color-azul-rgb: 0, 115, 204;
+  --color-azul-oscuro-rgb: 0, 52, 136;
+  --color-azul-profundo-rgb: 0, 29, 89;
+  --color-fondo-rgb: 0, 21, 36;
+  --color-negro-contrastado-rgb: 16, 16, 16;
+} 
+
+html,
+body {
   margin: 0;
   padding: 0;
   background-color: var(--color-claro);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Minecraft', sans-serif;
   color: var(--color-fondo);
+  height: 100%;
+}
+
+/* Force form elements to inherit the font */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
 }
 
 app-root {
@@ -37,21 +92,24 @@ app-root {
   position: sticky;
   top: 0;
   z-index: 1200;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 .navbar-title {
-  font-weight: 700;
-  color: #fff;
-  font-size: 1.15rem;
-  letter-spacing: 0.6px;
+  color: var(--color-azul-profundo);
+  font-size: 1.5rem;
+  font-family: 'Pusab', sans-serif;
+}
+
+.navbar-toggle {
+  display: none;
 }
 
 /* ======= NAV LIST ======= */
 .navbar-list {
   list-style: none;
   display: flex;
-  gap: 18px;
+  gap: 10px;
   align-items: center;
   margin: 0;
   padding: 0;
@@ -59,17 +117,17 @@ app-root {
 }
 
 .navbar-list a {
-  color: rgba(255,255,255,0.95);
+  color: var(--color-negro-contrastado);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: bold;
   padding: 8px 10px;
   border-radius: 8px;
   transition: background-color 200ms ease, color 200ms ease, transform 160ms ease;
 }
 
 .navbar-list a:hover {
-  background-color: rgba(255,255,255,0.15);
-  color: #fff;
+  background-color: rgba(var(--color-azul-oscuro-rgb), 0.20);
+  color: var(--color-azul-oscuro);
   transform: translateY(-2px);
 }
 
@@ -96,19 +154,29 @@ app-root {
   transition: transform 250ms ease, opacity 180ms ease;
 }
 
-.bar:nth-child(1) { top: 9px; }
-.bar:nth-child(2) { top: 16px; }
-.bar:nth-child(3) { top: 23px; }
+.bar:nth-child(1) {
+  top: 9px;
+}
+
+.bar:nth-child(2) {
+  top: 16px;
+}
+
+.bar:nth-child(3) {
+  top: 23px;
+}
 
 /* animación X centrada */
 .bar.active:nth-child(1) {
   transform: rotate(45deg) translateY(10px);
 }
+
 .bar.active:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
   pointer-events: none;
 }
+
 .bar.active:nth-child(3) {
   transform: rotate(-45deg) translateY(-10px);
 }
@@ -121,18 +189,18 @@ app-root {
 
   .navbar-list {
     position: absolute;
-    top: 58px;
+    top: 65px;
     right: 12px;
     flex-direction: column;
     background: linear-gradient(180deg, var(--color-naranja), var(--color-naranja-oscuro));
-    border-radius: 12px 0 0 12px;
+    border-radius: 12px;
     padding: 10px 0;
     overflow: hidden;
     transform: translateY(-10px) scale(0.98);
     opacity: 0;
     pointer-events: none;
     transition: transform 250ms ease, opacity 220ms ease;
-    width: 200px;
+    width: 150px;
   }
 
   .navbar-list.open {
@@ -142,25 +210,62 @@ app-root {
   }
 
   .navbar-list li {
-    width: 100%;
+    width: 90%;
     text-align: right;
-    padding-right: 16px;
   }
 
   .navbar-list a {
     display: block;
-    color: #fff;
-    padding: 10px 12px;
-  }
-
-  .navbar-list a:hover {
-    background: var(--color-claro);
-    color: var(--color-fondo);
-    transform: none;
   }
 }
 
 /* ======= FORMULARIOS ======= */
+.form-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input {
+  flex-grow: 1;
+  margin: 0 8px 0 0;
+}
+
+button {
+  background-color: var(--color-naranja);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+  margin: 0;
+}
+
+button:hover {
+  background-color: var(--color-naranja-oscuro);
+}
+
+.container,
+div.form-box {
+  border-radius: 5px;
+  background-color: #ffe8b0;
+  padding: 20px;
+  min-width: 200px;
+  max-width: 450px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container .container,
+div.form-box {
+  border-radius: 5px;
+  background-color: #f7c547;
+  padding: 20px;
+  min-width: 200px;
+  max-width: 450px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 input[type=text],
 input[type=password] {
   width: 100%;
@@ -171,7 +276,8 @@ input[type=password] {
   display: inline-block;
 }
 
-.enviar, .deshabilitado {
+.enviar,
+.deshabilitado {
   width: 100%;
   color: white;
   padding: 14px 20px;
@@ -185,21 +291,14 @@ input[type=password] {
   background-color: var(--color-naranja);
   transition: background-color 200ms ease;
 }
+
 .enviar:hover {
   background-color: var(--color-naranja-oscuro);
 }
 
 .deshabilitado {
-  background-color: #4caf4f62;
-  cursor: auto;
-}
-
-.container, div.form-box {
-  border-radius: 5px;
-  background-color: #ffe8b0;
-  padding: 20px;
-  width: 440px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: rgba(var(--color-naranja-oscuro-rgb), 0.60);
+  cursor: not-allowed;
 }
 
 h1 {

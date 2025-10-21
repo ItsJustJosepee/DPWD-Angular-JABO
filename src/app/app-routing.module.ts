@@ -10,9 +10,10 @@ import { Padre2Component } from './padre2/padre2.component';
 import { Hijo2Component } from './hijo2/hijo2.component';
 import { InicioComponent } from './inicio/inicio.component';
 
+// CAMBIOS HECHOS!
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
-  { path: 'Formulario', component: PlantillaComponent },
+  { path: 'formulario', component: PlantillaComponent },
   { path: 'validacion', component: ValidacionesComponent },
   { path: 'reactivos', component: FormulariosReactivosComponent },
   { path: 'padre', component: PadreComponent },
