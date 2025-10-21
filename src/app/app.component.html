@@ -1,5 +1,5 @@
 <nav class="navbar">
-  <div class="navbar-title">Proyecto Angular</div>
+  <a routerLink="/inicio" class="navbar-title">Proyecto Angular</a>
 
   <ul id="main-nav" class="navbar-list" [class.open]="isMenuOpen">
     <li><a routerLink="/formulario" (click)="closeMenu()">Plantilla</a></li>
@@ -16,7 +16,7 @@
   </button>
 </nav>
 
-<router-outlet></router-outlet>
+<router-outlet/>
 
 <footer class="footer">
   <p>José Arath Barajas Ortega</p>
