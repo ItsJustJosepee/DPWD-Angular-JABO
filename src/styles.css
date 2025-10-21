@@ -1,27 +1,42 @@
 /* ======= BASE ======= */
+:root {
+  --color-claro: #ffd373;
+  --color-naranja: #fd8021;
+  --color-naranja-oscuro: #e05400;
+  --color-azul: #0073cc;
+  --color-azul-oscuro: #003488;
+  --color-azul-profundo: #001d59;
+  --color-fondo: #001524;
+}
+
 html, body {
   margin: 0;
   padding: 0;
-  background-color: #ffd373; /* paleta: tonos claros predominan */
+  background-color: var(--color-claro);
   font-family: 'Poppins', sans-serif;
-  color: #001524;
+  color: var(--color-fondo);
 }
+
 app-root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* ======= NAVBAR ======= */
 .navbar {
-  background: linear-gradient(90deg, #fd8021, #e05400);
+  background: linear-gradient(90deg, var(--color-naranja), var(--color-naranja-oscuro));
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: sticky;
   top: 0;
-  z-index: 1200; /* navbar por encima */
+  z-index: 1200;
   box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
@@ -40,140 +55,84 @@ app-root {
   align-items: center;
   margin: 0;
   padding: 0;
-  transition: opacity 0.2s ease;
-  z-index: 1000; /* menú por debajo del botón toggle */
+  transition: opacity 0.25s ease;
 }
 
-/* Items */
-.navbar-list a,
-.navbar-list span {
+.navbar-list a {
   color: rgba(255,255,255,0.95);
   text-decoration: none;
   font-weight: 600;
   padding: 8px 10px;
   border-radius: 8px;
-  transition: background-color 180ms ease, color 180ms ease, transform 160ms ease;
+  transition: background-color 200ms ease, color 200ms ease, transform 160ms ease;
 }
 
-/* Hover suave (no cambio brusco) */
-.navbar-list a:hover,
-.navbar-list span:hover {
-  background-color: rgba(255,255,255,0.12); /* sutil, no blanco */
+.navbar-list a:hover {
+  background-color: rgba(255,255,255,0.15);
   color: #fff;
   transform: translateY(-2px);
 }
 
-/* ======= DROPDOWN (desktop) ======= */
-.submenu {
-  position: relative;
-}
-
-/* dropdown default hidden (scaleY) but accessible for transitions */
-.dropdown {
-  list-style: none;
-  padding: 6px 0;
-  margin: 0;
-  position: absolute;
-  top: 120%;
-  left: 0;
-  min-width: 150px;
-  background: #ffd373;
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  transform-origin: top center;
-  transform: translateY(-6px) scaleY(0.92);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 220ms cubic-bezier(.2,.9,.2,1), opacity 200ms ease;
-  z-index: 1050;
-}
-
-/* Al hacer hover en desktop muestra con animación */
-@media (min-width: 769px) {
-  .submenu:hover .dropdown {
-    transform: translateY(0) scaleY(1);
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
-
-.dropdown li a {
-  display: block;
-  padding: 9px 14px;
-  color: #001524;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 180ms ease, color 180ms ease;
-}
-
-.dropdown li a:hover {
-  background: linear-gradient(90deg,#fd8021,#e05400);
-  color: #fff;
-}
-
-/* ======= MENU TOGGLE (hamburguesa) ======= */
+/* ======= MENU TOGGLE ======= */
 .menu-toggle {
   display: none;
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
   border: none;
   background: transparent;
   cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  z-index: 1250; /* siempre encima para que la X no se tape */
+  position: relative;
+  z-index: 1250;
+  padding: 6px;
 }
 
-/* barras */
 .bar {
-  display: block;
-  width: 20px;
-  height: 2.5px;
-  background: white;
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 3px;
+  background: #fff;
   border-radius: 2px;
-  margin: 3px 0;
-  transition: transform 220ms ease, opacity 180ms ease;
+  transition: transform 250ms ease, opacity 180ms ease;
 }
 
-/* transformación a X */
+.bar:nth-child(1) { top: 9px; }
+.bar:nth-child(2) { top: 16px; }
+.bar:nth-child(3) { top: 23px; }
+
+/* animación X centrada */
 .bar.active:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+  transform: rotate(45deg) translateY(10px);
 }
 .bar.active:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
+  pointer-events: none;
 }
 .bar.active:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
+  transform: rotate(-45deg) translateY(-10px);
 }
 
-/* ======= RESPONSIVE (movil) ======= */
+/* ======= RESPONSIVE ======= */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: flex;
+    display: block;
   }
 
-  /* ajusta navbar para que no se vea raro en móvil */
-  .navbar {
-    padding: 8px 12px;
-  }
-
-  /* menú colapsado: compacto, con margen lateral */
   .navbar-list {
     position: absolute;
-    top: 56px;
+    top: 58px;
     right: 12px;
-    left: 12px; /* margen lateral que pediste */
-    margin: 0 auto;
     flex-direction: column;
-    background: linear-gradient(180deg,#fd8021,#e05400);
-    border-radius: 12px;
-    padding: 6px 6px;
+    background: linear-gradient(180deg, var(--color-naranja), var(--color-naranja-oscuro));
+    border-radius: 12px 0 0 12px;
+    padding: 10px 0;
     overflow: hidden;
-    transform: translateY(-10px) scale(0.995);
+    transform: translateY(-10px) scale(0.98);
     opacity: 0;
     pointer-events: none;
-    transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease;
-    max-width: 420px; /* evita que sea excesivo en pantallas grandes */
+    transition: transform 250ms ease, opacity 220ms ease;
+    width: 200px;
   }
 
   .navbar-list.open {
@@ -184,53 +143,85 @@ app-root {
 
   .navbar-list li {
     width: 100%;
-    text-align: center;
+    text-align: right;
+    padding-right: 16px;
   }
 
-  .navbar-list a,
-  .navbar-list span {
-    padding: 12px 6px;
-    color: #fff;
+  .navbar-list a {
     display: block;
+    color: #fff;
+    padding: 10px 12px;
   }
 
-  /* Submenus en móvil: acordeón suave */
-  .submenu .dropdown {
-    position: static;
-    background: #ffd373;
-    box-shadow: none;
-    border-radius: 8px;
-    margin: 6px 12px;
-    transform-origin: top;
-    transform: scaleY(0);
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 300ms ease, transform 240ms ease, opacity 240ms ease;
+  .navbar-list a:hover {
+    background: var(--color-claro);
+    color: var(--color-fondo);
+    transform: none;
   }
+}
 
-  /* clase .show controla la apertura del submenu (móvil y desktop click) */
-  .submenu .dropdown.show {
-    transform: scaleY(1);
-    opacity: 1;
-    max-height: 240px; /* suficiente para contenido */
-  }
+/* ======= FORMULARIOS ======= */
+input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+}
 
-  .dropdown li a {
-    color: #e05400;
-    padding: 10px 14px;
-  }
+.enviar, .deshabilitado {
+  width: 100%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  .dropdown li a:hover {
-    background: #ffb86b;
-    color: #001524;
-  }
+.enviar {
+  background-color: var(--color-naranja);
+  transition: background-color 200ms ease;
+}
+.enviar:hover {
+  background-color: var(--color-naranja-oscuro);
+}
+
+.deshabilitado {
+  background-color: #4caf4f62;
+  cursor: auto;
+}
+
+.container, div.form-box {
+  border-radius: 5px;
+  background-color: #ffe8b0;
+  padding: 20px;
+  width: 440px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--color-fondo);
+}
+
+.alerta {
+  background-color: #ff8d8d;
+  color: #d32424;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
 
 /* ======= FOOTER ======= */
 .footer {
-  background: #001524;
-  color: #ffd373;
+  background: var(--color-fondo);
+  color: var(--color-claro);
   text-align: center;
   padding: 14px;
   margin-top: auto;

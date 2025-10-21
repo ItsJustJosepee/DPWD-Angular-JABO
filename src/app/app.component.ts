@@ -9,7 +9,6 @@ import * as vercelAnalytics from '@vercel/analytics';
 })
 export class AppComponent implements OnInit {
   isMenuOpen = false;
-  isSubmenuOpen: string | null = null;
 
   constructor(private router: Router) {}
 
@@ -20,7 +19,6 @@ export class AppComponent implements OnInit {
         if (event instanceof NavigationEnd) {
           vercelAnalytics.inject();
           this.isMenuOpen = false;
-          this.isSubmenuOpen = null;
         }
       });
     }
@@ -28,16 +26,9 @@ export class AppComponent implements OnInit {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-    if (!this.isMenuOpen) this.isSubmenuOpen = null;
-  }
-
-  toggleSubmenu(menu: string) {
-    // si está abierto, lo cerramos; si no, lo abrimos
-    this.isSubmenuOpen = this.isSubmenuOpen === menu ? null : menu;
   }
 
   closeMenu() {
     this.isMenuOpen = false;
-    this.isSubmenuOpen = null;
   }
 }
