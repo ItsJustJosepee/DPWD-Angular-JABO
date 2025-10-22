@@ -35,7 +35,7 @@
   font-style: italic;
 }
 
-/* ======= BASE ======= */
+/* Variables de colores */
 :root {
   --color-claro: #ffd373;
   --color-naranja: #fd8021;
@@ -66,25 +66,22 @@ body {
   color: var(--color-fondo);
 }
 
-/* el root actúa como contenedor del layout */
+
 app-root {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  height: 100dvh; 
 }
 
-/* El contenido principal ocupará el espacio restante y tendrá scroll si es necesario */
 main {
   display: flex;
   flex-direction: column;
   flex: 1;
   position: relative;
-  overflow-y: overlay; /* Habilita el scroll vertical cuando el contenido excede el alto */
+  overflow-y: overlay;
   padding-top: 20px;
 }
 
-
-/* Force form elements to inherit font */
 input,
 button,
 textarea,
@@ -96,25 +93,21 @@ select {
   box-sizing: border-box;
 }
 
-/* ===== SCROLLBAR PERSONALIZADO ===== */
+/* Barra de scroll personalizado */
 ::-webkit-scrollbar {
-  width: 12px; /* ancho de la scrollbar */
+  width: 12px; 
 }
 
-/* Thumb visible */
 ::-webkit-scrollbar-thumb {
   background: var(--color-naranja);
   border-radius: 6px;
 }
 
-/* Thumb al pasar el mouse */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-naranja-oscuro);
 }
 
-
-
-/* ======= RESPONSIVE ======= */
+/* Estilos dinámicos para movil */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
