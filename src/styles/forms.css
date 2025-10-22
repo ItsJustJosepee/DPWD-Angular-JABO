@@ -75,6 +75,10 @@ input[type=password] {
   cursor: not-allowed;
 }
 
+.deshabilitado:hover {
+  background-color: rgba(var(--color-naranja-oscuro-rgb), 0.60);
+}
+
 h1 {
   margin-bottom: 10px;
   text-align: center;

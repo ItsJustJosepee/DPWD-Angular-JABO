@@ -64,16 +64,25 @@ body {
   background-color: var(--color-claro);
   font-family: 'Minecraft', sans-serif;
   color: var(--color-fondo);
-  display: flex;
-  flex-direction: column;
 }
 
 /* el root actúa como contenedor del layout */
 app-root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
 }
+
+/* El contenido principal ocupará el espacio restante y tendrá scroll si es necesario */
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  overflow-y: overlay; /* Habilita el scroll vertical cuando el contenido excede el alto */
+  padding-top: 20px;
+}
+
 
 /* Force form elements to inherit font */
 input,
@@ -86,6 +95,24 @@ select {
 * {
   box-sizing: border-box;
 }
+
+/* ===== SCROLLBAR PERSONALIZADO ===== */
+::-webkit-scrollbar {
+  width: 12px; /* ancho de la scrollbar */
+}
+
+/* Thumb visible */
+::-webkit-scrollbar-thumb {
+  background: var(--color-naranja);
+  border-radius: 6px;
+}
+
+/* Thumb al pasar el mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-naranja-oscuro);
+}
+
+
 
 /* ======= RESPONSIVE ======= */
 @media (max-width: 768px) {
