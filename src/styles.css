@@ -1,6 +1,7 @@
 @import url("styles/navbar.css");
 @import url("styles/forms.css");
 @import url("styles/footer.css");
+@import url("styles/carousel.css");
 
 @font-face {
   font-family: 'Pusab';
@@ -142,5 +143,19 @@ select {
 
   .navbar-list a {
     display: block;
+  }
+
+  .carousel {
+    height: 250px;
+  }
+
+  .carousel-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+
+  .info-proyecto {
+    padding: 15px 20px;
   }
 }

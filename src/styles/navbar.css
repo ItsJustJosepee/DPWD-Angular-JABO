@@ -1,4 +1,4 @@
-/* ======= NAVBAR ======= */
+/* Barra de navegación */
 .navbar {
   background: linear-gradient(90deg, var(--color-naranja), var(--color-naranja-oscuro));
   padding: 10px 20px;
@@ -29,7 +29,7 @@
   display: none;
 }
 
-/* ======= NAV LIST ======= */
+/* Lista de barra de navegación */
 .navbar-list {
   list-style: none;
   display: flex;
@@ -55,7 +55,7 @@
   transform: translateY(-1px);
 }
 
-/* ======= MENU TOGGLE ======= */
+/* Bpt+pm de menú */
 .menu-toggle {
   display: none;
   width: 42px;
@@ -90,7 +90,7 @@
   top: 23px;
 }
 
-/* animación X centrada */
+/* Animación del botón del menú */
 .bar.active:nth-child(1) {
   transform: rotate(45deg) translateY(10px);
 }
