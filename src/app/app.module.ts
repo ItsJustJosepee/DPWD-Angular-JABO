@@ -14,6 +14,11 @@ import { Hijo2Component } from './hijo2/hijo2.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { Padre3Component } from './padre3/padre3.component';
 import { Hijo3Component } from './hijo3/hijo3.component';
+import { EnlaceClaseComponent } from './enlace-clase/enlace-clase.component';
+import { EnlacePropiedadesComponent } from './enlace-propiedades/enlace-propiedades.component';
+import { VariablesPlantillaComponent } from './variables-plantilla/variables-plantilla.component';
+import { DirectivaNgIfComponent } from './directiva-ng-if/directiva-ng-if.component';
+import { DirectivaNgForComponent } from './directiva-ng-for/directiva-ng-for.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,12 @@ import { Hijo3Component } from './hijo3/hijo3.component';
     Hijo2Component,
     InicioComponent,
     Padre3Component,
-    Hijo3Component
+    Hijo3Component,
+    EnlaceClaseComponent,
+    EnlacePropiedadesComponent,
+    VariablesPlantillaComponent,
+    DirectivaNgIfComponent,
+    DirectivaNgForComponent
   ],
   imports: [
     BrowserModule,
