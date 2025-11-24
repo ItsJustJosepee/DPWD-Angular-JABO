@@ -1,11 +1,9 @@
 const CACHE_NAME = 'josepe-cache-v1';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/main.js',
-  '/assets/images/JosepAngular.png',
-  // agrega lo que necesites
+  './',
+  './index.html',
+  './styles.css',
+  './assets/images/JosepAngular.png'
 ];
 
 self.addEventListener('install', event => {
