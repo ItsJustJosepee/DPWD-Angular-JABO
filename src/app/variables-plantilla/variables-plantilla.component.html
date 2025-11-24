@@ -1,1 +1,24 @@
-<p>variables-plantilla works!</p>
+<div class="container">
+    <h1>Variables de Plantilla</h1>
+  
+    <label for="nombre">Nombre:</label>
+    <input type="text" placeholder="Ingresa tu Nombre" #name>
+  
+    <label for="apellido">Apellido:</label>
+    <input type="text" placeholder="Ingresa tu Apellido" #lastName>
+  
+    <label for="correo">Correo:</label>
+    <input type="email" placeholder="Ingresa tu Correo" #email>
+  
+    <label for="telefono">Teléfono:</label>
+    <input type="text" placeholder="Ingresa tu Teléfono" #phone>
+  
+    <input type="submit" class="enviar" value="Imprimir"
+           (click)="MostrarDatos(name.value, lastName.value, email.value, phone.value)">
+  
+    <label for="datos">Datos</label>
+    <textarea readonly name="datos" id="" cols="30" rows="18">{{ datos }}</textarea>
+  
+    <input type="submit" class="limpiar" value="Limpiar" (click)="datos = ''">
+  </div>
+  

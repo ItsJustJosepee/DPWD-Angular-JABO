@@ -1,0 +1,44 @@
+.header {
+    text-align: center;
+}
+
+.miniaturas {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100px;
+    height: 425px;
+    margin-right: 4px;
+}
+
+.miniatura {
+    height: 100px;
+    aspect-ratio: 1;
+}
+
+.miniatura:hover {
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    width: max-content;
+    margin-top: 10px;
+}
+
+.seleccionada {
+    height: 425px;
+    aspect-ratio: 1;
+    margin-top: 10px;
+}
+
+.all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: fit-content !important;
+    max-width: fit-content !important;
+}

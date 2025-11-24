@@ -25,6 +25,17 @@ button:hover {
   background-color: var(--color-naranja-oscuro);
 }
 
+.btns {
+  display:flex;
+  gap: 4px;
+  padding: 4px;
+}
+
+.btns button {
+  flex: 1;
+  padding: 10px;
+}
+
 .container,
 div.form-box {
   border-radius: 5px;
@@ -41,32 +52,31 @@ div.form-box {
   background-color: #f7c547;
 }
 
-input[type=text],
-input[type=password] {
+input, textarea {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
+  resize: none;
 }
 
-.enviar,
+.enviar, .limpiar,
 .deshabilitado {
   width: 100%;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.enviar {
+.enviar, .limpiar {
   background-color: var(--color-naranja);
   transition: background-color 200ms ease;
 }
 
-.enviar:hover {
+.enviar:hover, .limpiar:hover {
   background-color: var(--color-naranja-oscuro);
 }
 

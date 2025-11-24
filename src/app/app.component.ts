@@ -10,7 +10,7 @@ import * as vercelAnalytics from '@vercel/analytics';
 export class AppComponent implements OnInit {
   isMenuOpen = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     if (typeof window !== 'undefined') {
@@ -31,4 +31,25 @@ export class AppComponent implements OnInit {
   closeMenu() {
     this.isMenuOpen = false;
   }
+
+  dropdownOpen: string | null = null;
+  activeBtn: string | null = null;
+
+  toggleDropdown(nombre: string) {
+    this.dropdownOpen = this.dropdownOpen === nombre ? null : nombre;
+    this.activeBtn = this.activeBtn === nombre ? null : nombre; // <-- esto
+  }
+
+  openDropdown(nombre: string) {
+    if (window.innerWidth > 768) {
+      this.dropdownOpen = nombre;
+    }
+  }
+
+  closeDropdown() {
+    if (window.innerWidth > 768) {
+      this.dropdownOpen = null;
+    }
+  }
+
 }

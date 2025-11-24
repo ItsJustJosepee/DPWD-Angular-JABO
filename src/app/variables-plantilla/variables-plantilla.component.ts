@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './variables-plantilla.component.css'
 })
 export class VariablesPlantillaComponent {
+  datos: string = "";
 
+  MostrarDatos(nombre: string, apellido: string, correo: string, telefono: string) {
+    this.datos = "Nombre: " + nombre +
+                 "\nApellido: " + apellido +
+                 "\nCorreo: " + correo +
+                 "\nTeléfono: " + telefono;
+  }
 }

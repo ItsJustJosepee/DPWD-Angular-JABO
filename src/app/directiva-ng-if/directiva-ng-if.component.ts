@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './directiva-ng-if.component.css'
 })
 export class DirectivaNgIfComponent {
-
+  MostrarInfo: boolean = false;
 }

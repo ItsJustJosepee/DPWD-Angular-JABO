@@ -1,1 +1,13 @@
-<p>directiva-ng-for works!</p>
+<h1>Directiva ngFor</h1>
+
+<div class="center">
+
+
+  <div class="card" *ngFor="let maestro of ListaMaestros">
+    <h1>{{ maestro.nombre }}</h1>
+    <p>Edad: {{ maestro.edad }}</p>
+    <p>Materia: {{ maestro.materia }}</p>
+    <p>Activo: {{ maestro.activo }}</p>
+    <img [src]="maestro.img_url">
+  </div>
+</div>

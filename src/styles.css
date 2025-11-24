@@ -94,6 +94,14 @@ select {
   box-sizing: border-box;
 }
 
+.navbar-list,
+.navbar-list li,
+.dropdown-content,
+.dropdown-content li {
+  list-style: none;
+}
+
+
 /* Barra de scroll personalizado */
 ::-webkit-scrollbar {
   width: 12px; 
@@ -136,6 +144,11 @@ select {
     pointer-events: auto;
   }
 
+  .dropbtn {
+    width: 100%;
+    text-align: right;
+  }
+
   .navbar-list li {
     width: 90%;
     text-align: right;
@@ -143,19 +156,28 @@ select {
 
   .navbar-list a {
     display: block;
+
   }
 
   .carousel {
     height: 250px;
   }
 
-  .carousel-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 1.2rem;
-  }
 
   .info-proyecto {
     padding: 15px 20px;
+  }
+
+  .dropdown-content {
+    position: relative;
+    background: transparent;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  .dropbtn.active {
+    background-color: rgba(var(--color-azul-rgb), 0.15);
+    color: var(--color-azul);
+    transform: translateY(-1px);
   }
 }

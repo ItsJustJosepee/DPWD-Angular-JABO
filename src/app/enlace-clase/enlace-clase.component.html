@@ -1,1 +1,43 @@
-<p>enlace-clase works!</p>
+<div class="container">
+  <h1>Enlace de Clase Único</h1>
+  <div class="btns">
+    <button (click)="clase_actual = 'clase1'">Clase 1</button>
+    <button (click)="clase_actual = 'clase2'">Clase 2</button>
+    <button (click)="clase_actual = 'clase3'">Clase 3</button>
+  </div>
+  <p [class]="clase_actual">Texto de prueba, clase actual: {{ clase_actual }}</p>
+</div>
+
+<div class="container">
+  <h1>Enlace de Clase Booleano</h1>
+  <div class="btns">
+    <button [class.deshabilitado]="deshabilitado" (click)="clase_actual = 'clase1'">clase 1</button>
+    <button [class.deshabilitado]="deshabilitado" (click)="clase_actual = 'clase2'">clase 2</button>
+    <button [class.deshabilitado]="deshabilitado" (click)="clase_actual = 'clase3'">clase 3</button>
+    <button (click)="deshabilitado = !deshabilitado">Habilitar/Deshabilitar</button>
+  </div>
+  <p [class]="clase_actual">Texto de prueba, clase actual: {{ clase_actual }}</p>
+</div>
+
+<div class="container">
+  <h1>Enlace de Clase Múltiple Booleano</h1>
+  <div class="btns">
+    <button (click)="clase_actual = 'clase1'">Clase 1</button>
+    <button (click)="clase_actual = 'clase2'">Clase 2</button>
+    <button (click)="clase_actual = 'clase3'">Clase 3</button>
+  </div>
+
+  <div class="btns">
+    <button [class.seleccionado]="grande" (click)="grande = !grande">Grande</button>
+    <button [class.seleccionado]="cursiva" (click)="cursiva = !cursiva">Cursiva</button>
+    <button [class.seleccionado]="subrayado" (click)="subrayado = !subrayado">Subrayado</button>
+  </div>
+
+  <span [class]="clase_actual">
+    <p [class]="{
+          'grande' : grande,
+          'cursiva' : cursiva,
+          'subrayado' : subrayado
+        }">Texto de prueba, clase actual: {{ clase_actual }}</p>
+  </span>
+</div>

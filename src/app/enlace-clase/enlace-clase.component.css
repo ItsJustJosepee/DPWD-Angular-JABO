@@ -1,0 +1,27 @@
+.clase1 {
+    color: red;
+}
+
+.clase2 {
+    color: green;
+}
+
+.clase3 {
+    color: blue;
+}
+
+.grande {
+    font-size: large;
+}
+
+.cursiva {
+    font-style: italic;
+}
+
+.subrayado {
+    text-decoration: underline;
+}
+
+.seleccionado {
+    background-color: yellowgreen;
+}

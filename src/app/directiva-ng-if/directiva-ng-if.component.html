@@ -1,1 +1,21 @@
-<p>directiva-ng-if works!</p>
+<div class="container">
+    <h1>Directiva ngIf/else</h1>
+  
+    <img src="https://picsum.photos/id/237/1760/1200" alt="">
+    <br>
+    <ng-template #aviso>
+      <input type="button" value="Más Información" class="info"
+             (click)="MostrarInfo = true">
+    </ng-template>
+  
+    <div class="card" *ngIf="MostrarInfo; else aviso">
+      <h1>
+        Mascotas <input type="button" value="x" class="cerrar" (click)="MostrarInfo = false">
+      </h1>
+  
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit...
+      </p>
+    </div>
+  </div>
+  
