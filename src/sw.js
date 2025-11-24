@@ -2,7 +2,6 @@ const CACHE_NAME = 'josepe-cache-v1';
 const ASSETS = [
   './',
   './index.html',
-  './styles.css',
   './assets/images/JosepAngular.png'
 ];
 
